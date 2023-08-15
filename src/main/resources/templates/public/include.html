@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta name="force-rendering" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+<link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+<link id="cssFile" rel="stylesheet" th:href="@{/css/white.css}" type="text/css">
+<script>
+    function getCookieItem(name) {
+        const arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+        if (arr != null) {
+            return decodeURIComponent(arr[2]);
+        }
+    }
+
+    let cookieItem = getCookieItem('mx_style')
+    if (cookieItem && cookieItem !== 'white') {
+        document.querySelector('#cssFile').href = '/css/' + getCookieItem('mx_style') + '.css'
+    }
+</script>
+<link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}" type="text/css">
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/home.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.lazyload.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.cookie.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.clipboard.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.qrcode.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+<script type="text/javascript" th:src="@{/js/swiper-bundle.min.js}"></script>
+<script th:src="@{/layui/layui.all.js}"></script>
+<script>
+    $(function () {
+        $('#searchbutton').click(function () {
+            if ($('.search-input').val() === '') {
+                layer.msg('请输入搜索关键词！', {time: 1000, shade: 0.8});
+                $(".search-input").focus();
+                return false;
+            }
+        })
+    });
+</script>

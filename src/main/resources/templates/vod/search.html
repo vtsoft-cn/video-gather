@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>搜索结果</title>
+    <div th:replace="public/include"></div>
+</head>
+<body>
+<div class="page list">
+    <div th:replace="public/head"></div>
+    <div class="main">
+        <div class="content">
+            <div class="module">
+                <div class="module-heading module-heading-search">
+                    <div class="module-heading-search-result">搜索"<strong th:text="${searchName}">xxxx</strong>"，找到
+                        <strong class="mac_total" th:text="${vodList.size()}"></strong> 部影片
+                    </div>
+                </div>
+                <div class="module-main module-page">
+                    <div class="module-items module-card-items">
+                        <div th:replace="block/searchbox"></div>
+                    </div>
+                    <div th:replace="public/paging"></div>
+                </div>
+                <div th:if="${vodList.size()==0}">
+                    <div th:replace="block/vod_no"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="public/foot"></div>
+</body>
+</html>

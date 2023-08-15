@@ -1,0 +1,31 @@
+<div class="module-card-item module-item">
+    <div class="module-card-item-class">$vo.type.type_name</div>
+    <a href="{:mac_url_vod_detail($vo)}" class="module-card-item-poster">
+        <div class="module-item-cover">
+            <div class="module-item-top ">{$key}
+            </div>
+            <div class="module-item-note">已完结
+            </div>
+            <div class="module-item-pic"><img class="lazy lazyload" data-original="{$vo.vod_pic|mac_url_img}"
+                                              alt="{$vo.vod_name}" referrerpolicy="no-referrer"
+                                              src="{:mac_url_img($mxprost.mxprocms.s1.pic)}"></div>
+        </div>
+    </a>
+    <div class="module-card-item-info">
+        <div class="module-card-item-title">
+            <a href=""><strong>{$vo.vod_name}</strong></a>
+        </div>
+        <div class="module-info-item">
+            <div class="module-info-item-content">{$vo.vod_year} <span class="slash">/</span>{$vo.vod_area} <span
+                    class="slash">/</span> {$vo.vod_class}
+            </div>
+        </div>
+        <div class="module-info-item">
+            <div class="module-info-item-content">{$vo.vod_actor}</div>
+        </div>
+    </div>
+    <div class="module-card-item-footer">
+        <a href="{:mac_url_vod_play($vo)}" class="play-btn icon-btn"><i class="icon-play"></i><span>播放</span></a>
+        <a href="{:mac_url_vod_detail($vo)}" class="play-btn-o"><span>详情</span></a>
+    </div>
+</div>

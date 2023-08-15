@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="public/include"></div>
+    <title>视频首页</title>
+    <meta name="keywords" content="vtsoft"/>
+    <meta name="description" content="video"/>
+</head>
+<body>
+<div class="homepage">
+    <div th:replace="public/head"></div>
+    <div class="main">
+        <div class="content">
+            <div th:replace="index/slide"></div>
+            <div th:replace="index/hot"></div>
+        </div>
+    </div>
+    <div th:replace="public/foot"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<a th:each="vod,item:${vodList}"
+   th:href='${"/video/detail?videoId="+vod.getId()}'
+   th:title="${vod.getVodName()}"
+   class="module-poster-item module-item">
+    <div class="module-item-cover">
+        <div class="module-item-note" th:text="${vod.getVodRemarks()}">
+            已完结
+        </div>
+        <div class="module-item-pic"><img class="lazy lazyload"
+                                          th:alt="${vod.getVodName()}" referrerpolicy="no-referrer"
+                                          th:src="${vod.getVodPic()}"></div>
+    </div>
+    <div class="module-poster-item-info">
+        <div class="module-poster-item-title" th:text="${vod.getVodName()}">xxx</div>
+    </div>
+</a>

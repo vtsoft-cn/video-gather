@@ -1,0 +1,58 @@
+#vtSoft:
+#  server:
+#    #  设置了 ssl 后将 80 端口的访问 转发到 ssl：443 也就是下面设置的 port
+#    http-port: 80
+
+server:
+  # 当前项目的访问端口
+  port: 80
+  # 如果不需要配置 ssl 请将这里的配置去除
+#  ssl:
+#    key-store: classpath:vtsoft.cn.jks
+#    key-store-password: nxfl49vg
+#    key-store-type: JKS
+
+spring:
+  application:
+    name: vtSoft
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.h2.Driver
+    username: root
+    password: 2f84a7f05a444d1aa689d04adc1a27a0
+    url: jdbc:h2:file:~/.h2/vt_soft
+  thymeleaf:
+    cache: false
+  jpa:
+    database: h2
+    generate-ddl: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+video-properties:
+  resource-name: 资源采集
+  collection-address:
+
+logging:
+  file:
+    name: "${spring.application.name}.log"
+  charset:
+    console: UTF-8
+    file: UTF-8
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) %green([%thread]) %class:%line [%X{traceId}] - %cyan(%msg%n)"
+    file: "[%.-5level][%X{traceId}][%d{yyyy-MM-dd HH-mm-ss.SSS}][%class:%line][%thread]%.-1024msg%n"
+  level:
+    root: info
+    java:
+      sql:
+        Connection: info
+        Statement: debug
+        PreparedStatement: debug
+  logback:
+    rolling policy:
+      max-file-size: 40MB
+      file-name-pattern: "%d{yyyyMMdd}/${spring.application.name}_%d{yyyyMMdd}_%i.log.gz"
+      total-size-cap: 100GB
+      max-history: 365

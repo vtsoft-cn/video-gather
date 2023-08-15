@@ -1,0 +1,33 @@
+<div th:each="vod,item:${vodList}" class="module-card-item module-item">
+    <!--    <div class="module-card-item-class">电视剧</div>-->
+    <a th:href='${"/video/detail?videoId="+vod.getId()}'
+       th:title="${vod.getVodName()}"
+       class="module-card-item-poster">
+        <div class="module-item-cover">
+            <div class="module-item-note" th:text="${vod.getVodRemarks()}">已完结</div>
+            <div class="module-item-pic"><img class="lazy lazyload"
+                                              th:alt="${vod.getVodName()}" referrerpolicy="no-referrer"
+                                              th:src="${vod.getVodPic()}"></div>
+        </div>
+    </a>
+    <div class="module-card-item-info">
+        <div class="module-card-item-title">
+            <a href=""><strong th:text="${vod.getVodName()}">庆余年</strong></a>
+        </div>
+        <div class="module-info-item">
+            <div class="module-info-item-content">[[${vod.getVodYear()}]] <span class="slash">/</span>[[${vod.getVodArea()}]]
+                <span
+                        class="slash">/</span> [[${vod.getVodClass()}]]
+            </div>
+        </div>
+        <div class="module-info-item">
+            <div class="module-info-item-content">查看详情请点击详情
+            </div>
+        </div>
+    </div>
+    <div class="module-card-item-footer">
+        <a th:href='${"/video/play?videoId="+vod.getId()+"&episode=0"}' class="play-btn icon-btn"><i
+                class="icon-play"></i><span>播放</span></a>
+        <a th:href='${"/video/detail?videoId="+vod.getId()}' class="play-btn-o"><span>详情</span></a>
+    </div>
+</div>

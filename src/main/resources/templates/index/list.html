@@ -1,0 +1,27 @@
+<div class="module">
+    <div class="module-heading">
+        <h2 class="module-title"><a href="/templates/public">电影<span
+                class="module-title-en">电影</span></a></h2>
+        <div class="module-tab">
+            <div class="module-tab-items">
+                <div class="module-tab-title">选择类型<span class="close-drop"><i class="icon-close"></i></span></div>
+                <div class="module-tab-items-box">
+                    <span class="module-tab-item tab-item active"
+                          data-dropdown-value="科幻片 16">科幻片</span>
+                    <span class="module-tab-item tab-item"
+                          data-dropdown-value="科幻片 16">科幻片</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module-main tab-list active">
+        <div class="module-items">
+            <div th:replace="block/vodbox"></div>
+        </div>
+    </div>
+    <div class="module-main tab-list">
+        <div class="module-items">
+            <div th:replace="block/vodbox"></div>
+        </div>
+    </div>
+</div>

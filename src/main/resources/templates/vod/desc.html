@@ -1,0 +1,89 @@
+<div class="module module-info">
+    <div class="module-main">
+        <div class="module-info-poster">
+            <div class="module-item-cover">
+                <div class="module-item-pic">
+                    <img class="ls-is-cached lazy lazyload"
+                         th:src="${videoDetail.getVodPic()}" th:alt="${videoDetail.getVodName()}">
+                </div>
+            </div>
+        </div>
+        <div class="module-info-main">
+            <div class="module-info-heading">
+                <h1 th:text="${videoDetail.getVodName()}">xxx</h1>
+                <div class="module-info-tag">
+                    <div class="module-info-tag-link">
+                        <!--th:href='${"/year?year="+videoDetail.getVodYear()}'-->
+                        <a th:text="${videoDetail.getVodYear()}">xxx</a>
+                    </div>
+                    <div class="module-info-tag-link">
+                        <!--th:href='${"/attribution?area="+videoDetail.getVodArea()}'-->
+                        <a th:text="${videoDetail.getVodArea()}">xxx</a>
+                    </div>
+                    <div class="module-info-tag-link">
+                        <!--th:href='${"/category?clas="+videoDetail.getVodClass()}'-->
+                        <a th:text="${videoDetail.getVodClass()}">xxx</a>
+                        <span class="slash">/</span>
+                        <!--th:href='${"/language?lang="+videoDetail.getVodLang()}'-->
+                        <a th:text="${videoDetail.getVodLang()}">xxx</a>
+                    </div>
+                </div>
+                <div class="module-mobile-play">
+                    <a th:href='${"/video/play?videoId="+videoDetail.getId()+"&episode=0"}' class="main-btn"
+                       title="立即播放"><i class="icon-play"></i>立即播放</a>
+                </div>
+            </div>
+            <div class="module-info-content">
+                <div class="module-info-items">
+                    <div class="module-info-item module-info-introduction">
+                        <a class="module-info-introduction-content"
+                           th:title='${videoDetail.getVodContent().replaceAll("[(<p>),(</p>)]","")}'
+                           th:text='${videoDetail.getVodContent().replaceAll("[(<p>),(</p>)]","")}'>
+                        </a>
+                    </div>
+                    <div class="module-info-item"><span class="module-info-item-title">导演：</span>
+                        <div class="module-info-item-content"
+                             th:text='${videoDetail.getVodDirector()}'>
+                        </div>
+                    </div>
+                    <div class="module-info-item"><span class="module-info-item-title">主演：</span>
+                        <div class="module-info-item-content"
+                             th:text='${videoDetail.getVodActor().replace(",","/")}'>
+                        </div>
+                    </div>
+                    <div class="module-info-item"><span class="module-info-item-title">上映时间：</span>
+                        <div class="module-info-item-content" th:text="${videoDetail.getVodYear()}">2022-10-10</div>
+                    </div>
+                    <div class="module-info-item"><span class="module-info-item-title">更新时间：</span>
+                        <div class="module-info-item-content"
+                             th:text='${#dates.format(videoDetail.getLastUpdate(),"yyyy-MM-dd HH:mm:ss")}'>2023-03-05
+                        </div>
+                    </div>
+                    <div class="module-info-item"><span class="module-info-item-title">视频状态：</span>
+                        <div class="module-info-item-content" th:text="${videoDetail.getVodRemarks()}">
+                            更新至10集
+                        </div>
+                    </div>
+                </div>
+                <div class="module-info-footer">
+                    <div class="module-info-play">
+                        <a th:href='${"/video/play?videoId="+videoDetail.getId()+"&episode=0"}' class="main-btn"
+                           title="立即播放"><i class="icon-play"></i>立即播放</a>
+<!--                        <a href="javascript:void(0);" onclick="getQr('401977')" style="position: relative;"-->
+<!--                           class="btn-large btn-collect btn-share">-->
+<!--                            <i class="icon-qrcode"></i>-->
+<!--                            <span>分享</span>-->
+<!--                        </a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="module-poster-bg">
+        <div class="module-item-cover">
+            <div class="module-item-pic">
+                <img class="lazy lazyload" th:alt="${videoDetail.getVodName()}" referrerpolicy="no-referrer"
+                     th:src="${videoDetail.getVodPic()}"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="header">
+    <div class="header-box">
+        <div class="logo">
+            <a title="vtsoft">
+                <img class="logo1" th:src="@{/favicon.ico}" alt="logo" src="">
+            </a>
+        </div>
+        <div class="search-box ">
+            <div class="searchbar-main">
+                <form name="search" method="get" action="/video/search" onSubmit="return qrsearch();">
+                    <div class="searchbar">
+                        <input class="search-input" type="text" name="wd" autocomplete="off"
+                               placeholder="搜索电影、电视剧、综艺、动漫">
+                        <button class="search-btn search-go" id="searchbutton" type="submit"><i
+                                class="icon-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="header-op">
+            <div class="header-op-list">
+<!--                <div class="drop">-->
+<!--                    <div class="header-op-list-btn header-op-history"><i-->
+<!--                            class="icon icon-history-o"></i><span>观看记录</span>-->
+<!--                    </div>-->
+<!--                    <div class="drop-content drop-history">-->
+<!--                        <div class="drop-content-box">-->
+<!--                            <ul class="drop-content-items historical">-->
+<!--                                <li class="drop-item drop-item-title"><i-->
+<!--                                        class="icon icon-history"></i><strong>我的观影记录</strong></li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="shortcuts-mobile-overlay"></div>-->
+<!--                </div>-->
+                <div class="member_group">
+                    <img th:src="@{/favicon.ico}" class="useimg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="sidebar">
+    <div class="navbar">
+        <ul class="navbar-items swiper-wrapper" id="swiper-wrapper-cd11a25104bff290a" aria-live="polite">
+            <li th:class="${isHome?'swiper-slide navbar-item active':'swiper-slide navbar-item'}" role="group">
+                <a href="/" class="links">
+                    <div class="current"></div>
+                    <i class="icon-arrow-go"></i><i class="icon icon-home-o"></i><span>首页</span></a>
+            </li>
+            <li class="navbar-hr"></li>
+            <li th:class="${'swiper-slide navbar-item '+videoType.getClassStyle()}"
+                th:each="videoType,item:${videoTypes}">
+                <a th:href='${"/video/"+videoType.getTypeNameEn()}' th:title="${videoType.getTypeName()}" class="links">
+                    <i class="icon-arrow-go"></i>
+                    <i th:class="${videoType.getIcon()}"></i>
+                    <span th:text="${videoType.getTypeName()}"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+<!--    <div class="side-op">-->
+<!--        <div class="header-op-list">-->
+<!--            <div class="drop">-->
+<!--                <div class="header-op-list-btn header-op-history"><i-->
+<!--                        class="icon icon-history-o"></i><span>观看记录</span>-->
+<!--                </div>-->
+<!--                <div class="drop-content drop-history">-->
+<!--                    <div class="drop-content-box">-->
+<!--                        <ul class="drop-content-items historical">-->
+<!--                            <li class="drop-item drop-item-title"><i-->
+<!--                                    class="icon icon-history"></i><strong>我的观影记录</strong></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="shortcuts-mobile-overlay"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
