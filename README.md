@@ -14,7 +14,7 @@ SpringBoot + thymeleaf + h2
 
 ##### 2、详情页
 
-![desc](desc.png)
+![desc](https://github.com/vtsoft-cn/video-gather/blob/0375486d08458c6acc08db776eeb2d7ebbea1dd1/desc.png)
 
 ##### 3、视频加载页
 
