@@ -10,16 +10,16 @@ SpringBoot + thymeleaf + h2
 
 ##### 1、项目首页
 
-![index](./index.png)
+![index](index.png)
 
 ##### 2、详情页
 
-![desc](./desc.png)
+![desc](desc.png)
 
 ##### 3、视频加载页
 
-![loading](./loading.png)
+![loading](loading.png)
 
 ##### 4、视频播放页
 
-![play](./play.png)
+![play](play.png)
