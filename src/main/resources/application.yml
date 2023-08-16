@@ -32,7 +32,7 @@ spring:
 
 video-properties:
   resource-name: 资源采集
-  collection-address:
+  collection-address: https://cj.lziapi.com/api.php/provide/vod/from/lzm3u8/at/xml
 
 logging:
   file:
