@@ -4,24 +4,24 @@
     <title th:text="${siteName}"></title>
     <meta name="keywords" content="{$obj.type_key}"/>
     <meta name="description" content="{$obj.type_des}"/>
-    <div th:replace="public/include"></div>
+    <div th:replace="~{public/include}"></div>
 </head>
 <body>
 <div class="page list pianku">
-    <div th:replace="public/head"></div>
+    <div th:replace="~{public/head}"></div>
     <div class="main">
         <div class="content">
             <div class="module">
                 <div class="module-main module-page">
                     <div class="module-items">
-                        <div th:replace="block/vodbox"></div>
+                        <div th:replace="~{block/vodbox}"></div>
                     </div>
-                    <div th:replace="public/paging"></div>
+                    <div th:replace="~{public/paging}"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div th:replace="public/foot"></div>
+    <div th:replace="~{public/foot}"></div>
 </div>
 </body>
 </html>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="public/include"></div>
+    <div th:replace="~{public/include}"></div>
     <title th:text="${videoDetail.getVodName()}">在线播放</title>
 </head>
 <body>
 <div class="page player">
-    <div th:replace="public/head"></div>
+    <div th:replace="~{public/head}"></div>
     <div class="main">
         <div class="content">
             <div class="module module-player">
@@ -18,13 +18,13 @@
                                      style="position: absolute;width: 100%;height: 100%;z-index: 1000"></div>
                             </div>
                         </div>
-                        <div th:replace="vod/playlist"></div>
+                        <div th:replace="~{vod/playlist}"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div th:replace="public/foot"></div>
+    <div th:replace="~{public/foot}"></div>
 </div>
 </body>
 <script type="text/javascript" src="/js/hls.min.js"></script>

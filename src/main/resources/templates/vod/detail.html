@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="public/include"></div>
+    <div th:replace="~{public/include}"></div>
     <title th:text="${videoDetail.getVodName()}">xxx</title>
 </head>
 <body>
 <div class="page view">
-    <div th:replace="public/head"></div>
+    <div th:replace="~{public/head}"></div>
     <div class="main">
         <div class="content">
-            <div th:replace="vod/desc"></div>
+            <div th:replace="~{vod/desc}"></div>
             <div class="module">
                 <div class="module-heading player-heading">
                     <div class="module-tab">
@@ -35,7 +35,7 @@
             <script type="text/javascript">$(".tab-item:first,.module-list:first").addClass("active");</script>
         </div>
     </div>
-    <div th:replace="public/foot"></div>
+    <div th:replace="~{public/foot}"></div>
 </div>
 <span style="display:none" class="mac_ulog_set" alt="设置内容页浏览记录" data-type="1" data-mid="{$maccms.mid}"
       data-id="{$obj.vod_id}" data-sid="{$param.sid}" data-nid="{$param.nid}"></span>
