@@ -1,12 +1,14 @@
 package com.vtsoft.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.h2.expression.Parameter;
+import org.hibernate.annotations.Comment;
+import org.hibernate.annotations.Type;
+import org.hibernate.proxy.HibernateProxy;
 
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * description
@@ -15,55 +17,86 @@ import java.util.Date;
  * @author Garden
  * @version 1.0 create 2023/3/5 22:50
  */
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Builder
+@Comment("视频数据")
 @Table(name = "VIDEO_VOD")
 @AllArgsConstructor
-@NoArgsConstructor
 public class VideoVodEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "TYPE_ID", columnDefinition = "INT comment '视频所属分类id'")
+    @Comment("视频所属分类id")
+    @Column(name = "TYPE_ID", columnDefinition = "INT")
     private Integer typeId;
 
-    @Column(name = "VOD_NAME", columnDefinition = "VARCHAR comment '视频名称'")
+    @Comment("视频名称")
+    @Column(name = "VOD_NAME", columnDefinition = "VARCHAR")
     private String vodName;
 
-    @Column(name = "VOD_CLASS", columnDefinition = "VARCHAR comment '视频分类'")
+    @Comment("视频分类")
+    @Column(name = "VOD_CLASS", columnDefinition = "VARCHAR")
     private String vodClass;
 
-    @Column(name = "VOD_PIC", columnDefinition = "VARCHAR comment '视频图片'")
+    @Comment("视频图片")
+    @Column(name = "VOD_PIC", columnDefinition = "VARCHAR")
     private String vodPic;
 
-    @Column(name = "VOD_ACTOR", columnDefinition = "VARCHAR comment '演员'")
+    @Comment("演员")
+    @Column(name = "VOD_ACTOR", columnDefinition = "VARCHAR")
     private String vodActor;
 
-    @Column(name = "VOD_DIRECTOR", columnDefinition = "VARCHAR comment '导演'")
+    @Comment("导演")
+    @Column(name = "VOD_DIRECTOR", columnDefinition = "VARCHAR")
     private String vodDirector;
 
-    @Column(name = "VOD_REMARKS", columnDefinition = "VARCHAR comment '备注（更新至第几集 | HD | 已完结）'")
+    @Comment("备注（更新至第几集 | HD | 已完结）")
+    @Column(name = "VOD_REMARKS", columnDefinition = "VARCHAR")
     private String vodRemarks;
 
-    @Column(name = "VOD_AREA", columnDefinition = "VARCHAR comment '区域（视频发布地）'")
+    @Comment("区域（视频发布地）")
+    @Column(name = "VOD_AREA", columnDefinition = "VARCHAR")
     private String vodArea;
 
-    @Column(name = "VOD_LANG", columnDefinition = "VARCHAR comment '语言'")
+    @Comment("语言")
+    @Column(name = "VOD_LANG", columnDefinition = "VARCHAR")
     private String vodLang;
 
-    @Column(name = "VOD_YEAR", columnDefinition = "VARCHAR comment '年份'")
+    @Comment("年份")
+    @Column(name = "VOD_YEAR", columnDefinition = "VARCHAR")
     private String vodYear;
 
-    @Column(name = "VOD_CONTENT", columnDefinition = "VARCHAR comment '视频描述内容'")
+    @Comment("视频描述内容")
+    @Column(name = "VOD_CONTENT", columnDefinition = "VARCHAR")
     private String vodContent;
 
-    @Column(name = "VOD_PLAY_URL", columnDefinition = "VARCHAR comment '播放地址信息'")
+    @Comment("播放地址信息")
+    @Column(name = "VOD_PLAY_URL", columnDefinition = "VARCHAR")
     private String vodPlayUrl;
 
-    @Column(name = "LAST_UPDATE", columnDefinition = "VARCHAR comment '最后更新时间'")
+    @Comment("最后更新时间")
+    @Column(name = "LAST_UPDATE", columnDefinition = "VARCHAR")
     private Date lastUpdate;
 
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        VideoVodEntity that = (VideoVodEntity) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
 }

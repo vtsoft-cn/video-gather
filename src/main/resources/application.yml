@@ -1,16 +1,16 @@
-#vtSoft:
-#  server:
-#    #  设置了 ssl 后将 80 端口的访问 转发到 ssl：443 也就是下面设置的 port
-#    http-port: 80
+vtSoft:
+  server:
+    #  设置了 ssl 后将 80 端口的访问 转发到 ssl：443 也就是下面设置的 port
+    http-port: 80
 
 server:
   # 当前项目的访问端口
-  port: 80
+  port: 443
   # 如果不需要配置 ssl 请将这里的配置去除
-#  ssl:
-#    key-store: classpath:vtsoft.cn.jks
-#    key-store-password: nxfl49vg
-#    key-store-type: JKS
+  ssl:
+    key-store: classpath:vtsoft.cn.jks
+    key-store-password: hv9ki5en
+    key-store-type: JKS
 
 spring:
   application:
@@ -24,8 +24,6 @@ spring:
   thymeleaf:
     cache: false
   jpa:
-    database: h2
-    generate-ddl: true
     open-in-view: false
     hibernate:
       ddl-auto: update

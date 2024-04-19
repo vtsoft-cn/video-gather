@@ -3,7 +3,6 @@ package com.vtsoft.conf;
 import com.vtsoft.constant.Constant;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
@@ -15,17 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 /**
- * 自定义404- NOT FOUND
- *
- * @author LeoSong
+ * @author Garden
+ * @description 自定义404- NOT FOUND
  * @date 2020/08/25
  */
 @Controller
 @RequestMapping("${server.error.path:${error.path:/error}}")
 public class CustomErrorController extends BasicErrorController {
-
-    @Value("${server.error.path:${error.path:/error}}")
-    private String path;
 
     public CustomErrorController(ServerProperties serverProperties) {
         super(new DefaultErrorAttributes(), serverProperties.getError());

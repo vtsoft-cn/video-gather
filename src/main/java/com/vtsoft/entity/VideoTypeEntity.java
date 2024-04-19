@@ -1,10 +1,11 @@
 package com.vtsoft.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.Comment;
+import org.hibernate.proxy.HibernateProxy;
+
+import java.util.Objects;
 
 
 /**
@@ -14,34 +15,58 @@ import lombok.NoArgsConstructor;
  * @author Garden
  * @version 1.0 create 2023/3/5 22:36
  */
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @Builder
+@Comment("视频分类")
 @Table(name = "VIDEO_TYPE")
 @AllArgsConstructor
-@NoArgsConstructor
 public class VideoTypeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "TYPE_NAME", columnDefinition = "VARCHAR comment '分类名称'")
+    @Comment("分类名称")
+    @Column(name = "TYPE_NAME", columnDefinition = "VARCHAR")
     private String typeName;
 
-    @Column(name = "TYPE_NAME_EN", columnDefinition = "VARCHAR comment '分类名称英文'")
+    @Comment("分类名称英文")
+    @Column(name = "TYPE_NAME_EN", columnDefinition = "VARCHAR")
     private String typeNameEn;
 
-    @Column(name = "TYPE_SORT", columnDefinition = "TINYINT comment '分类排序'")
+    @Comment("分类排序")
+    @Column(name = "TYPE_SORT", columnDefinition = "TINYINT")
     private Integer typeSort;
 
-    @Column(name = "TYPE_MID", columnDefinition = "INT comment '所属分类（对应视频采集网站分类id）'")
+    @Comment("所属分类（对应视频采集网站分类id）")
+    @Column(name = "TYPE_MID", columnDefinition = "INT")
     private Integer typeMid;
 
-    @Column(name = "TYPE_PID", columnDefinition = "INT comment '父类id'")
+    @Comment("父类id")
+    @Column(name = "TYPE_PID", columnDefinition = "INT")
     private Integer typePid;
 
-    @Column(name = "ICON", columnDefinition = "VARCHAR comment '图标'")
+    @Comment("图标")
+    @Column(name = "ICON", columnDefinition = "VARCHAR")
     private String icon;
 
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        VideoTypeEntity that = (VideoTypeEntity) o;
+        return getId() != null && Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
+    }
 }
