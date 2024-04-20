@@ -20,22 +20,8 @@
         </div>
         <div class="header-op">
             <div class="header-op-list">
-<!--                <div class="drop">-->
-<!--                    <div class="header-op-list-btn header-op-history"><i-->
-<!--                            class="icon icon-history-o"></i><span>观看记录</span>-->
-<!--                    </div>-->
-<!--                    <div class="drop-content drop-history">-->
-<!--                        <div class="drop-content-box">-->
-<!--                            <ul class="drop-content-items historical">-->
-<!--                                <li class="drop-item drop-item-title"><i-->
-<!--                                        class="icon icon-history"></i><strong>我的观影记录</strong></li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="shortcuts-mobile-overlay"></div>-->
-<!--                </div>-->
                 <div class="member_group">
-                    <img th:src="@{/favicon.ico}" class="useimg">
+                    <img th:src="@{/favicon.ico}" class="useimg" alt="">
                 </div>
             </div>
         </div>
@@ -44,14 +30,15 @@
 <div class="sidebar">
     <div class="navbar">
         <ul class="navbar-items swiper-wrapper" id="swiper-wrapper-cd11a25104bff290a" aria-live="polite">
-            <li th:class="${isHome?'swiper-slide navbar-item active':'swiper-slide navbar-item'}" role="group">
+            <li th:class="${'swiper-slide navbar-item '+ (isHome?'active':'')}">
                 <a href="/" class="links">
-                    <div class="current"></div>
+                    <div th:class="${isHome?'current':''}"></div>
                     <i class="icon-arrow-go"></i><i class="icon icon-home-o"></i><span>首页</span></a>
             </li>
             <li class="navbar-hr"></li>
-            <li th:class="${'swiper-slide navbar-item '+videoType.getClassStyle()}"
+            <li th:class="${'swiper-slide navbar-item '+ videoType.getClassStyle()}"
                 th:each="videoType,item:${videoTypes}">
+                <div th:class="${videoType.getClassStyle()!=''?'current':''}"></div>
                 <a th:href='${"/video/"+videoType.getTypeNameEn()}' th:title="${videoType.getTypeName()}" class="links">
                     <i class="icon-arrow-go"></i>
                     <i th:class="${videoType.getIcon()}"></i>
@@ -60,22 +47,4 @@
             </li>
         </ul>
     </div>
-<!--    <div class="side-op">-->
-<!--        <div class="header-op-list">-->
-<!--            <div class="drop">-->
-<!--                <div class="header-op-list-btn header-op-history"><i-->
-<!--                        class="icon icon-history-o"></i><span>观看记录</span>-->
-<!--                </div>-->
-<!--                <div class="drop-content drop-history">-->
-<!--                    <div class="drop-content-box">-->
-<!--                        <ul class="drop-content-items historical">-->
-<!--                            <li class="drop-item drop-item-title"><i-->
-<!--                                    class="icon icon-history"></i><strong>我的观影记录</strong></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="shortcuts-mobile-overlay"></div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 </div>

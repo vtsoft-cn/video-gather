@@ -1,80 +1,31 @@
 <div class="module-player-side">
     <div class="module-player-info">
         <div class="module-info-heading">
-            <h1><a th:title="${videoDetail.getVodName()}"
-                   th:text="${videoDetail.getVodName()}">狂飙</a></h1>
+            <h1 th:text="${videoDetail.getVodName()}"></h1>
             <div class="module-info-tag">
                 <div class="module-info-tag-link">
-                    <a title="年份"
-                       href="" th:text="${videoDetail.getVodYear()}">2022-02-02</a>
+                    <span th:text="${videoDetail.getVodYear()}"></span>
                 </div>
                 <div class="module-info-tag-link">
-                    <a title="创作地"
-                       href="" th:text="${videoDetail.getVodArea()}">中国</a>
+                    <span th:text="${videoDetail.getVodArea()}"></span>
                 </div>
                 <div class="module-info-tag-link">
-                    <a href="" th:text="${videoDetail.getVodClass()}">剧情</a>
-                    <span class="slash">/</span>
+                    <span th:text="${videoDetail.getVodClass()}"></span>
                 </div>
                 <div class="module-info-tag-link">
-                    <a href="" th:text="${videoDetail.getVodLang()}">国语</a>
-                    <span class="slash">/</span>
+                    <span th:text="${videoDetail.getVodLang()}"></span>
                 </div>
             </div>
         </div>
     </div>
-    <div class="module-player-handle-items">
-        <div class="module-player-handle-item">
-            <div class="handle-btn" id="sortBtn">
-                <span class="handle-btn-icon"><i class="icon-sort"></i></span><span class="handle-btn-name">排序</span>
-            </div>
-        </div>
-        <div class="module-player-handle-item share">
-            <div class="handle-btn share-btn" title="点击分享即可复制当前地址"
-                 th:data-clipboard-text='${"http://vtsoft.cn/video/play?videoId="+videoDetail.getId()+"&episode="+episode}'>
-                <span class="handle-btn-icon"><i class="icon-share"></i></span><span class="handle-btn-name">分享</span>
-            </div>
-        </div>
-        <div class="module-player-handle-item qrcode drop">
-            <div class="handle-btn"><span class="handle-btn-icon"><i class="icon-qrcode"></i></span><span
-                    class="handle-btn-name">手机观看</span></div>
-            <div class="drop-content drop-qrcode">
-                <div class="drop-content-box drop-qrcode-content">
-                    <div class="drop-qrcode-info">
-                        <div class="drop-qrcode-img" id="qrcode"></div>
-                        <div class="drop-qrcode-info-text">
-                            <p><strong th:text="${videoDetail.getVodName()}">狂飙</strong></p>
-                            <p>手机扫一扫继续看</p>
-                        </div>
-                    </div>
-                    <div class="drop-qrcode-info-tips" style="text-align: center">手机扫码即可访问当前地址</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="player-list">
-        <div class="module-heading player-heading">
-            <div class="module-tab-items tab swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode">
-                <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events module-tab-items tab swiper-initialized">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide module-tab-item tab-item active">
-                            播放列表<small class="no" th:text="${videoDetail.getEpisodes().size()}">123</small></div>
-                    </div>
-                </div>
-            </div>
-            <div class="shortcuts-mobile-overlay"></div>
-        </div>
-        <div class="module-list sort-list tab-list play-tab-list active">
-            <div class="module-play-list">
-                <div class="module-play-list-content">
-                    <a th:each="episodeTxt,item:${videoDetail.getEpisodes()}"
-                       th:class="${'module-play-list-link '+(episode==item.index?'active':'')}"
-                       th:href='${"/video/play?videoId="+videoDetail.getId()+"&episode="+item.index}' title="点击播放">
-                        <span th:text="${episodeTxt}">第一集</span>
-                        <div class="playon"><i></i><i></i><i></i><i></i></div>
-                    </a>
-                </div>
-            </div>
+    <div class="module-list">
+        <div class="module-play-list">
+            <a th:each="episodeTxt,item:${videoDetail.getEpisodes()}"
+               th:class="${'module-play-list-link '+(episode==item.index?'active':'')}"
+               th:href='${"/video/play?videoId="+videoDetail.getId()+"&episode="+item.index}'
+               title="点击播放">
+                <span th:text="${episodeTxt}">第一集</span>
+            </a>
         </div>
     </div>
 </div>

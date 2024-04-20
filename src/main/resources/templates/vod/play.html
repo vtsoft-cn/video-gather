@@ -9,22 +9,17 @@
     <div th:replace="~{public/head}"></div>
     <div class="main">
         <div class="content">
-            <div class="module module-player">
-                <div class="module-main">
-                    <div class="player-box">
-                        <div class="player-box-main">
-                            <div class="MacPlayer copyright">
-                                <div id="MacPlayer"
-                                     style="position: absolute;width: 100%;height: 100%;z-index: 1000"></div>
-                            </div>
-                        </div>
-                        <div th:replace="~{vod/playlist}"></div>
+            <div class="module">
+                <div class="player-box-main">
+                    <div class="MacPlayer copyright">
+                        <div id="MacPlayer"
+                             style="position: absolute;width: 100%;height: 100%;z-index: 1000"></div>
                     </div>
                 </div>
+                <div th:replace="~{vod/playlist}"></div>
             </div>
         </div>
     </div>
-    <div th:replace="~{public/foot}"></div>
 </div>
 </body>
 <script type="text/javascript" src="/js/hls.min.js"></script>
@@ -35,6 +30,7 @@
             $.get({
                 success: function (result) {
                     const playUrl = JSON.parse(result).url;
+
                     function playM3u8(video, url, art) {
                         if (Hls.isSupported()) {
                             if (art.hls) art.hls.destroy();
@@ -49,6 +45,7 @@
                             art.notice.show = 'Unsupported playback format: m3u8';
                         }
                     }
+
                     new Artplayer({
                         container: document.getElementById("MacPlayer"),
                         url: playUrl,

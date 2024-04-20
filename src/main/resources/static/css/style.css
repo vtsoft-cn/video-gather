@@ -255,40 +255,6 @@ input[type=checkbox] {
     background: #f7f8f9
 }
 
-.border,
-.btn-block-o,
-.play-btn-o,
-.module-heading-more,
-.module-tab-name,
-.module-class,
-.module-item-box a,
-.module-info-tag-link,
-.module-play-list-link {
-    position: relative
-}
-
-.border::after,
-.btn-block-o::after,
-.play-btn-o::after,
-.module-heading-more::after,
-.module-tab-name::after,
-.module-class::after,
-.module-item-box a::after,
-.module-info-tag-link::after,
-.module-play-list-link::after {
-    border: 1px solid #e9ecef;
-    border-radius: 8px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    pointer-events: none
-}
-
 @media only screen and (max-width: 559px) {
 
     .border::after,
@@ -304,7 +270,7 @@ input[type=checkbox] {
         height: 200%;
         -webkit-transform: scale(0.5);
         transform: scale(0.5);
-        border-radius: 16px
+        border-radius: 16px;
     }
 }
 
@@ -402,10 +368,6 @@ input[type=checkbox] {
 
 .icon-next:before {
     content: "\e91b"
-}
-
-.icon-share:before {
-    content: "\e91c"
 }
 
 .icon-qrcode:before {
@@ -1199,18 +1161,6 @@ input[type=checkbox] {
     border-color: transparent
 }
 
-
-@media (max-width: 1024px) {
-
-    .main-btn::after,
-    .module-prompt p a::after,
-    .popup-btn::after {
-        right: -44%;
-        opacity: 0;
-        text-indent: 5px
-    }
-}
-
 .drop-content {
     position: absolute;
     top: 40px;
@@ -1437,10 +1387,6 @@ input[type=checkbox] {
 .module {
     padding-bottom: 20px;
     font-size: 0
-}
-
-.module-main {
-    position: relative
 }
 
 .module-heading {
@@ -1695,7 +1641,7 @@ input[type=checkbox] {
 }
 
 .module-item-cover {
-    transition: box-shadow .15s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
     position: relative;
     height: 0;
     padding-top: 140%;
@@ -2328,14 +2274,14 @@ input[type=checkbox] {
 }
 
 .module-info-heading h1 {
-    font-size: 30px;
+    font-size: 24px;
     line-height: 1.38;
     margin-bottom: 10px;
     position: relative
 }
 
 .module-info-tag-link {
-    background: #fff;
+    background: #f7f8f9;
     margin-right: 6px;
     padding: 0 12px;
     font-size: 14px
@@ -2419,24 +2365,25 @@ input[type=checkbox] {
 }
 
 .module-play-list {
-    margin: -5px;
-    max-height: 380px;
-    overflow-y: auto
+    /*处理内部元素表格布局 宽度高度间距相同*/
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 }
 
 .module-play-list-link {
     cursor: pointer;
     color: #424242;
     margin: 5px;
-    padding: 0px 10px;
+    padding: 0 10px;
     text-align: center;
-    position: relative
+    position: relative;
+    border: 1px #eeeeee solid;
 }
 
 .module-play-list-link.active {
     color: #e50914;
     font-weight: 700;
-    background: #fff0ec !important
+    background: #fff0ec !important;
 }
 
 .module-play-list-link:hover {
@@ -2483,10 +2430,6 @@ input[type=checkbox] {
 .MacPlayer {
     padding-bottom: 56.25% !important;
     display: block
-}
-
-.module-player {
-    padding-bottom: 40px
 }
 
 .handle-btn {
@@ -3269,6 +3212,7 @@ input[type=checkbox] {
     }
 
     .module-poster-item .module-item-cover:hover {
+        transform: scale(1.1);
         box-shadow: 0 20px 15px -10px rgba(0, 0, 0, 0.2), 0 50px 35px -40px rgba(0, 0, 0, 0.4), 0 50px 35px -40px rgba(243, 2, 2, 0.2)
     }
 
@@ -3312,54 +3256,24 @@ input[type=checkbox] {
         margin: -8px 0 -25px
     }
 
-    .player-list {
-        height: 100%
-    }
-
     .player-box-main {
-        position: relative;
         overflow: hidden;
-        display: inline-block;
         z-index: 10;
-        width: calc(100% - 360px)
-    }
-
-    .player-box {
-        font-size: 0;
-        position: relative;
-        background: #fff;
-        border-radius: 0 18px 18px 0
-    }
-
-    .player-box::after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        border-radius: 0 18px 18px 0;
-        z-index: 9;
-        box-shadow: 0 2.75px 2.21px rgba(0, 0, 0, 0.01), 0 6.65px 5.32px rgba(0, 0, 0, 0.02), 0 12.5px 10px rgba(0, 0, 0, 0.01), 0 22px 18px rgba(0, 0, 0, 0.03), 0 42px 33.4px rgba(0, 0, 0, 0.02), 0 100px 80px rgba(0, 0, 0, 0.01), 0 0 1px rgba(0, 0, 0, 0.1)
     }
 
     .module-player-side {
-        position: absolute;
-        right: 0px;
+        right: 0;
         top: 0;
-        width: 355px;
-        height: 100%;
         bottom: 0;
         z-index: 10;
-        border-top-right-radius: 18px;
-        border-bottom-right-radius: 18px;
     }
 
     .module-player-info {
+        background: #fff;
         padding: 20px;
-        border-top-right-radius: 18px;
+        border-radius: 0 0 18px 18px;
         position: relative;
-        background: #e9ecef
+        margin-bottom: 20px
     }
 
     .module-player-info .module-info-heading {
@@ -3395,11 +3309,7 @@ input[type=checkbox] {
         display: block
     }
 
-    .player .module-play-list-content {
-        padding-bottom: 20px
-    }
-
-    .player .module-player .module-title {
+    .player .module-title {
         font-size: 14px;
         flex: 1;
     }
@@ -3422,10 +3332,8 @@ input[type=checkbox] {
 
     .player .module-list {
         box-shadow: none;
-        background: transparent;
-        height: calc(100% - 205px);
         overflow: auto;
-        border-radius: 0
+        border-radius: 15px
     }
 
     .player .module-list.active {
@@ -3469,19 +3377,6 @@ input[type=checkbox] {
     .player .player-heading .module-tab-item {
         line-height: 40px;
         padding: 0 12px
-    }
-
-    .module-player-handle-items {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 60px;
-        z-index: 9;
-        display: flex;
-        align-items: center;
-        border-top: 1px solid #f3f5f7;
-        background: #fafafa;
-        border-bottom-right-radius: 18px
     }
 
     .module-player-handle-item {
@@ -3694,7 +3589,7 @@ input[type=checkbox] {
         border-radius: 0 0 18px 18px;
         position: relative;
         padding: 20px 0 25px;
-        margin-bottom: 40px
+        margin-bottom: 20px
     }
 
     .module-player-info::after {
@@ -3743,17 +3638,6 @@ input[type=checkbox] {
     .module-card-item-footer .play-btn.icon-btn span {
         position: relative;
         top: -2%
-    }
-
-    .module-player-side {
-        position: relative
-    }
-
-    .module-player-handle-items {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        z-index: 9
     }
 
     .module-player-handle-item {
@@ -3921,8 +3805,7 @@ input[type=checkbox] {
     }
 
     .main {
-        padding-top: 120px;
-        min-height: calc(100vh - 175px)
+        padding-top: 80px;
     }
 
     .header {
@@ -4189,8 +4072,8 @@ input[type=checkbox] {
     }
 
     .module-list {
-        border-radius: 8px 0 8px 8px;
-        padding: 20px
+        border-radius: 15px;
+        padding: 20px;
     }
 
     .player-heading .module-tab-items {
@@ -4208,10 +4091,6 @@ input[type=checkbox] {
 
     .player-heading .module-tab-item.active {
         border-radius: 6px 6px 0 0
-    }
-
-    .module-player {
-        margin-top: -30px
     }
 }
 
@@ -4372,8 +4251,8 @@ input[type=checkbox] {
 
     .header {
         position: relative;
-        padding: 100px 15px 20px;
-        height: 220px;
+        padding: 60px 15px 20px;
+        height: 180px;
         width: 100%
     }
 
@@ -4927,7 +4806,7 @@ input[type=checkbox] {
 
     .module-list {
         padding: 15px;
-        border-radius: 8px
+        border-radius: 8px;
     }
 
     .module-play-list-link::after {
@@ -4951,9 +4830,8 @@ input[type=checkbox] {
         padding: 30px 0 10px
     }
 
-    .module-info .module-main {
+    .module-info {
         position: relative;
-        z-index: 9;
         border-radius: 18px 18px 8px 8px;
         box-shadow: 0 2.75px 2.21px rgba(0, 0, 0, 0.01), 0 6.65px 5.32px rgba(0, 0, 0, 0.02), 0 12.5px 10px rgba(0, 0, 0, 0.01), 0 22px 18px rgba(0, 0, 0, 0.03), 0 42px 33.4px rgba(0, 0, 0, 0.02), 0 100px 80px rgba(0, 0, 0, 0.01), 0 0 1px rgba(0, 0, 0, 0.1);
         background: #fff url(../img/colour-bg.png) no-repeat;
@@ -4964,7 +4842,8 @@ input[type=checkbox] {
 
     .module-poster-bg {
         width: 100%;
-        position: absolute;
+        position: fixed;
+        z-index: -100;
         top: -170px;
         left: 0;
         overflow: hidden;
@@ -5091,7 +4970,7 @@ input[type=checkbox] {
 
     .module-player-info {
         padding: 15px 0 20px;
-        margin-bottom: 30px
+        margin-bottom: 20px
     }
 
     .module-player-info .module-info-heading {
@@ -5111,11 +4990,6 @@ input[type=checkbox] {
         height: 26px;
         line-height: 26px;
         padding: 0 10px
-    }
-
-    .module-player-handle-items {
-        top: 12px;
-        right: 0
     }
 
     .module-player-handle-item {
@@ -5219,7 +5093,7 @@ input[type=checkbox] {
         margin: 0
     }
 
-    .links-list .module-main {
+    .links-list {
         margin: 0 -5px
     }
 

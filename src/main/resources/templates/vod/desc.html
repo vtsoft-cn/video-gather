@@ -10,22 +10,18 @@
         </div>
         <div class="module-info-main">
             <div class="module-info-heading">
-                <h1 th:text="${videoDetail.getVodName()}">xxx</h1>
+                <h1 th:text="${videoDetail.getVodName()}"></h1>
                 <div class="module-info-tag">
                     <div class="module-info-tag-link">
-                        <!--th:href='${"/year?year="+videoDetail.getVodYear()}'-->
-                        <a th:text="${videoDetail.getVodYear()}">xxx</a>
+                        <span th:text="${videoDetail.getVodYear()}"></span>
                     </div>
                     <div class="module-info-tag-link">
-                        <!--th:href='${"/attribution?area="+videoDetail.getVodArea()}'-->
-                        <a th:text="${videoDetail.getVodArea()}">xxx</a>
+                        <span th:text="${videoDetail.getVodArea()}"></span>
                     </div>
                     <div class="module-info-tag-link">
-                        <!--th:href='${"/category?clas="+videoDetail.getVodClass()}'-->
-                        <a th:text="${videoDetail.getVodClass()}">xxx</a>
+                        <span th:text="${videoDetail.getVodClass()}"></span>
                         <span class="slash">/</span>
-                        <!--th:href='${"/language?lang="+videoDetail.getVodLang()}'-->
-                        <a th:text="${videoDetail.getVodLang()}">xxx</a>
+                        <span th:text="${videoDetail.getVodLang()}"></span>
                     </div>
                 </div>
                 <div class="module-mobile-play">
@@ -69,21 +65,17 @@
                     <div class="module-info-play">
                         <a th:href='${"/video/play?videoId="+videoDetail.getId()+"&episode=0"}' class="main-btn"
                            title="立即播放"><i class="icon-play"></i>立即播放</a>
-<!--                        <a href="javascript:void(0);" onclick="getQr('401977')" style="position: relative;"-->
-<!--                           class="btn-large btn-collect btn-share">-->
-<!--                            <i class="icon-qrcode"></i>-->
-<!--                            <span>分享</span>-->
-<!--                        </a>-->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="module-poster-bg">
-        <div class="module-item-cover">
-            <div class="module-item-pic">
-                <img class="lazy lazyload" th:alt="${videoDetail.getVodName()}" referrerpolicy="no-referrer"
-                     th:src="${videoDetail.getVodPic()}"></div>
+        <div class="module-poster-bg">
+            <div class="module-item-cover">
+                <div class="module-item-pic">
+                    <img class="lazy lazyload" th:alt="${videoDetail.getVodName()}" referrerpolicy="no-referrer"
+                         th:src="${videoDetail.getVodPic()}"></div>
+            </div>
         </div>
     </div>
+
 </div>

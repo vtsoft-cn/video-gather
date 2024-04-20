@@ -10,36 +10,9 @@
     <div class="main">
         <div class="content">
             <div th:replace="~{vod/desc}"></div>
-            <div class="module">
-                <div class="module-heading player-heading">
-                    <div class="module-tab">
-                        <div class="module-tab-items">
-                            <div class="module-tab-items-box hisSwiper" id="y-playList">
-                                <div class="module-tab-item tab-item">播放列表</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="shortcuts-mobile-overlay"></div>
-                </div>
-                <div class="module-list sort-list tab-list his-tab-list" id="panel1">
-                    <div class="module-play-list">
-                        <div class="module-play-list-content">
-                            <a th:each="episode,item:${videoDetail.getEpisodes()}" class="module-play-list-link"
-                               th:href='${"/video/play?videoId="+videoDetail.getId()+"&episode="+item.index}'>
-                                <span th:text="${episode}">第一集</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <script type="text/javascript">$(".tab-item:first,.module-list:first").addClass("active");</script>
         </div>
     </div>
-    <div th:replace="~{public/foot}"></div>
 </div>
-<span style="display:none" class="mac_ulog_set" alt="设置内容页浏览记录" data-type="1" data-mid="{$maccms.mid}"
-      data-id="{$obj.vod_id}" data-sid="{$param.sid}" data-nid="{$param.nid}"></span>
-<span style="display:none" class="mac_history_set" alt="设置History历史记录"
-      data-name="[{$obj.type.type_name}]{$obj.vod_name}" data-pic="{$obj.vod_pic|mac_url_img}"></span>
 </body>
 </html>
