@@ -43,4 +43,4 @@ logging:
       max-file-size: 40MB
       file-name-pattern: "%d{yyyyMMdd}/${spring.application.name}_%d{yyyyMMdd}_%i.log.gz"
       total-size-cap: 100GB
-      max-history: 365
+      max-history: 2
