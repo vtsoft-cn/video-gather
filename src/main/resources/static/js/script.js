@@ -205,25 +205,25 @@ $(function () {
             clickable: true
         },
     })
-    const swiper1 = new Swiper('.swiper-big', {
-        autoplay: {
-            disableOnInteraction: false,
-        },
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
-        on: {
-            slideChangeTransitionStart: function () {
-                swiper2.slideTo(this.activeIndex)
-            },
-        }
-    })
+    // const swiper1 = new Swiper('.swiper-big', {
+    //     autoplay: {
+    //         disableOnInteraction: false,
+    //     },
+    //     loop: true,
+    //     navigation: {
+    //         nextEl: '.swiper-button-next',
+    //         prevEl: '.swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true
+    //     },
+    //     on: {
+    //         slideChangeTransitionStart: function () {
+    //             swiper2.slideTo(this.activeIndex)
+    //         },
+    //     }
+    // })
 
     let cookie = document.cookie
     const popup = document.querySelector('#popup')
